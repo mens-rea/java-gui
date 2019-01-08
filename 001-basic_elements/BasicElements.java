@@ -1,5 +1,6 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.*;
 
 public class BasicElements{
 	
@@ -20,7 +21,7 @@ public class BasicElements{
     private static void placeComponents(JPanel panel) {
 
         panel.setLayout(null);
-        panel.setBackground(Color.black);
+        panel.setBackground(Color.blue);
 
         JLabel userLabel = new JLabel("Username:");
         userLabel.setBounds(100, 60, 80, 25);
@@ -41,9 +42,18 @@ public class BasicElements{
         panel.add(passwordText);
 
         JButton loginButton = new JButton("Login");
-        loginButton.setBounds(220, 180, 80, 25);
+        loginButton.setBounds(280, 180, 80, 25);
         panel.add(loginButton);
-        
-    }
 
+        JButton clearButton = new JButton("Clear");
+        clearButton.setBounds(100, 180, 80, 25);
+        panel.add(clearButton);
+
+        clearButton.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+            	userText.setText("");
+            	passwordText.setText("");
+        	}
+        }); 
+    }
 }
